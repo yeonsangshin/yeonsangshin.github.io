@@ -491,49 +491,33 @@ Interests: Computer Vision, Diffusion Models, 3D.
     <!-- The post -->
     <div class="w-full">
       <!-- One post item in a list -->
-<div class="
-    post-container
-    px-2 py-2
-    flex flex-col gap-3">
+<div class="post-container px-2 py-2 flex flex-col gap-3">
     <div class="flex flex-row gap-4">
         
-            
             <!-- Post thumbnail -->
+            <a href="/2024/11/18/2024-Vaker/" class="thumbnail-container">
+                <img 
+                    class="thumbnail-image rounded-md"
+                    src="/2024/11/18/2024-Vaker/vaker_thumbnail.png"
+                    alt=""
+                    onerror="this.onerror=null; console.log('Image failed to load:', this.src);"
+                    loading="lazy"
+                />
+            </a>
+        
+        <div class="flex flex-col gap-1">
+            <!-- Rest of your content -->
             <a href="/2024/11/18/2024-Vaker/">
-            <img class="
-                h-full
-                max-w-48
-                rounded-md
-                object-cover
-                transition-all
-                hover:scale-105
-                hover:shadow-md
-                "
-                src="/2024/11/18/2024-Vaker/vaker_thumbnail.png"
-                alt="">
-            </img>
-        </a>
-            
-            <div class="flex flex-col gap-1">
-                <!-- Post title -->
-                <a href="/2024/11/18/2024-Vaker/">
-                    <h2 class="
-                        text-[var(--c-80)]
-                        font-bold
-                        text-xl
-                        hover:text-[var(--c-theme)]
-                        transition-all
-                        hover:underline">
-                        Generating Animated Layouts as Structured Text Representations
-                    </h2>
-                </a>
-            <!-- Post excerpt -->
+                <h2 class="text-[var(--c-80)] font-bold text-xl hover:text-[var(--c-theme)] transition-all hover:underline">
+                    Generating Animated Layouts as Structured Text Representations
+                </h2>
+            </a>
             
                 <div class="post-excerpt post-content text-[var(--c-60)] text-sm line-clamp-5 border-b-1 border-[var(--c-sep)]">
                     <p><strong>TL;DR</strong>: The paper proposes “ST-Representation”, a structured text format that enables precise control over text and animated elements in video layouts by encoding them hierarchically, demonstrated through their VAKER video advertisement generation system.</p>                </div>
             
-            </div>
         </div>
+    </div>
         <!-- Post Statistics -->
         <div class="flex flex-wrap items-center gap-x-2 text-sm
             text-[var(--c-70)]">
