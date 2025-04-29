@@ -409,6 +409,10 @@
 
     <!-- toc -->
     
+  <!-- tocbot -->
+<nav class="post-toc toc text-sm w-40 relative top-32 right-4 opacity-70 hidden lg:block" style="position: fixed !important;"></nav>
+
+
 <section class="px-6 max-w-prose mx-auto md:px-0">
   <!-- Post header before content -->
   <header class="py-4">
@@ -429,7 +433,7 @@
             </div>
             <div class="flex items-center gap-1">
               <iconify-icon width="18" icon="mingcute:refresh-3-fill" ></iconify-icon>
-              Edited: <time class="w-max">2024-11-22</time>
+              Edited: <time class="w-max">2025-04-29</time>
             </div>
           </div>
           <div class="flex flex-wrap items-center gap-x-3 gap-y-3">
@@ -444,7 +448,7 @@
             <!-- Word count -->
             <span class="flex items-center gap-1">
               <iconify-icon width="18" icon="mingcute:book-2-fill" ></iconify-icon>
-              <span>35 words, 1 min</span>
+              <span>396 words, 2 min</span>
             </span>
             <!-- Categories -->
             
@@ -454,7 +458,7 @@
                   width="18"
                   icon="mingcute:classify-2-fill">
                 </iconify-icon>
-                <a class="article-category-link" href="/categories/paper/">Paper</a>
+                <a class="article-category-link" href="/categories/cvpr-workshop/">CVPR Workshop</a>
               </span>
             
           </div>
@@ -483,10 +487,10 @@
           dark:hover:text-[var(--c-10)]
           dark:hover:bg-[var(--c-theme)]
         ">
-        paper
+        Paper
       </a>
     
-      <a href="/tags/arxiv/" 
+      <a href="/tags/computer-vision/" 
         class="
           tag
           text-sm
@@ -503,7 +507,27 @@
           dark:hover:text-[var(--c-10)]
           dark:hover:bg-[var(--c-theme)]
         ">
-        arxiv
+        Computer Vision
+      </a>
+    
+      <a href="/tags/generative-ai/" 
+        class="
+          tag
+          text-sm
+          rounded-full
+          px-[5px]
+          border-[1px]
+          border-[var(--c-theme)]
+          text-[var(--c-theme)]
+          bg-[var(--c-0)]
+          dark:bg-[var(--c-0)]
+          dark:drop-shadow-none
+          hover:bg-[var(--c-theme)]
+          hover:text-[var(--c-0)]
+          dark:hover:text-[var(--c-10)]
+          dark:hover:bg-[var(--c-theme)]
+        ">
+        Generative AI
       </a>
     
   
@@ -513,10 +537,44 @@
   </header>
   <!-- content -->
   <article class="post-content prose m-auto dark:prose-invert">
-    <p><strong>TL;DR</strong>: The paper proposes “ST-Representation”, a structured text format that enables precise control over text and animated elements in video layouts by encoding them hierarchically, demonstrated through their VAKER video advertisement generation system.</p>
+    <p><strong>TL;DR</strong>: We’ve created VAKER, a new system that solves a major problem in AI video generation: creating videos with clear, readable text and precise control over animated elements. Unlike existing models that struggle with text rendering, VAKER treats video layouts as structured text representations and uses a three-stage process to generate visually appealing video advertisements with dynamic text animations.</p>
 <span id="more"></span>
 
-<p><img src="/2024/11/18/2024-Vaker/vaker_thumbnail.png" alt="Teaser"></p>
+<p><a href="https://yeonsangshin.github.io/projects/Vaker">[Project Page]</a> &nbsp; &nbsp; <a href="vaker_paper.pdf">[Paper(PDF)]</a></p>
+<p><img src="/2024/11/18/2024-Vaker/vaker_thumbnail.png" alt="Teaser Image"></p>
+<h2 id="Introducing-Animated-Layout-Generation"><a href="#Introducing-Animated-Layout-Generation" class="headerlink" title="Introducing Animated Layout Generation"></a>Introducing Animated Layout Generation</h2><p>While text-to-video models have made impressive advances in creating realistic scenes, they still struggle with two critical challenges: generating readable text and precisely controlling animated graphics. Our work addresses these limitations with a novel approach we call <strong>Animated Layout Generation</strong>.</p>
+<h2 id="The-Challenge"><a href="#The-Challenge" class="headerlink" title="The Challenge"></a>The Challenge</h2><p>Current diffusion-based text-to-video models excel at generating diverse videos with realistic scenes, but they have a fundamental constraint: they can’t reliably produce readable text or precisely position animated elements. This limitation becomes particularly apparent when trying to create content like:</p>
+<ul>
+<li>Social media videos with animated captions</li>
+<li>Promotional videos with precisely timed visual elements</li>
+<li>Informational videos with synchronized text overlays</li>
+</ul>
+<h2 id="Our-Solution-VAKER"><a href="#Our-Solution-VAKER" class="headerlink" title="Our Solution: VAKER"></a>Our Solution: VAKER</h2><p>To address these challenges, we’ve developed <strong>VAKER (Video Ad maKER)</strong>, a comprehensive text-to-video advertisement generation pipeline. VAKER introduces several properties:</p>
+<ol>
+<li><p><strong>Structured Text (ST) Representation</strong>: A novel way to represent videos as hierarchical text sequences, preserving spatial and temporal relationship while enabling precise control over text rendering and object positioning</p>
+</li>
+<li><p><strong>Three-Stage Generation Process</strong>: VAKER breaks the complex task of video advertisement creation into three manageable stages:</p>
+<ul>
+<li>Banner generation (texts at the bottom&#x2F;top of the screen)</li>
+<li>Mainground generation (background and foreground elements)</li>
+<li>Animation generation (defining how elements move over time)</li>
+</ul>
+</li>
+<li><p><strong>Unstructured Text (UT) Reasoning</strong>: A Chain-of-Thought approach that leverages the reasoning capabilities of LLMs to translate natural language prompts into structured formats.</p>
+</li>
+</ol>
+<p><img src="/2024/11/18/2024-Vaker/vaker_model.png" alt="Model Overview"></p>
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p>For video results, please check our <a href="https://yeonsangshin.github.io/projects/Vaker">project page</a>. VAKER can create diverse animation patterns, including:</p>
+<ul>
+<li>Horizontal&#x2F;vertical shifts</li>
+<li>Spiral reveals</li>
+<li>Pulsing effects</li>
+<li>Expansions and contractions</li>
+<li>Growth&#x2F;shrinking animations</li>
+</ul>
+<p><img src="/2024/11/18/2024-Vaker/vaker_animations.png" alt="Diverse Animation Patterns"></p>
+<p>What’s particularly interesting is that several of these animation patterns emerged <em>without explicit training examples</em>, demonstrating the model’s generative capabilities.</p>
+<h2 id="Technical-Implementation"><a href="#Technical-Implementation" class="headerlink" title="Technical Implementation"></a>Technical Implementation</h2><p>VAKER is powered by a LoRA-adapted Llama-3.1 70B model, trained on a dataset of 2,224 video advertisements (provided by SK telecom, preprocessed ourselves). The training process involves fine-tuning three specialized expert models, each handling a different stage of the generation process.</p>
 
   </article>
 
